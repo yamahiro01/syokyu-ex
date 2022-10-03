@@ -1,0 +1,862 @@
+$sp: 768px;  // スマホ
+$tb: 1199px;  // タブレット
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media (max-width: ($tb)) {
+    @content;
+  }
+}
+
+// 共通
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  // color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ヘッダー
+.header {
+  height: 130px;
+
+  @include sp {
+    height: 150px;
+  }
+  
+  .header-inner {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include sp {
+      display: block;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+
+  &-logo a img {
+    width: 263px;
+    height: 73px;
+
+    @include tb {
+      width: 197px;
+      height: 55px;
+    }
+
+    @include sp {
+      width: 175px;
+      height: 49px;
+    }
+  }
+
+  &-information {
+    text-align: right;
+
+    @include sp {
+      text-align: center;
+    }
+
+    &-reception {
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 7px;
+
+      @include sp {
+        padding-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &-tel {
+
+      img {
+        position: relative;
+        top: 4px;
+        left: 1px;
+      }
+
+      span {
+        color: #21a937;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }  
+  }
+}
+
+// メインビジュアル
+.mv {
+  height: 947px;
+  background-image: url(../img/fv/fv.png);
+  background-size: cover;
+  background-position: center;
+  // text-align: center;
+  position: relative;
+
+  @include tb {
+    background-position: 80% 50%;
+  }
+
+  @include sp {
+    height: 500px;  // 背景画像の位置を調整
+  }
+  
+  &-copy {
+    position: absolute;
+    top: 14%;
+    left: 11%;
+    display: flex;
+    // padding-top: 133px;
+
+    @include tb {
+      top: 35%;
+      left: 5%;
+    }
+
+    @include sp {
+      top: 42%;
+      left: 5%;
+    }
+  }
+
+  // 縦書きletter-spacingの公式：テキストの高さ - (line-heightのpx × 文字数)　ex. 448px - (34px × 13個) =  6px
+  &-copy-ttl-1 {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    background-color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 6px;
+    padding: 24px 37px 99px 37px;
+
+    @include sp {
+      font-size: 14px;
+      letter-spacing: 3px;
+      padding: 15px 20px 15px 20px;
+      // padding-left: 20px;
+      // padding-right: 20px;
+      // padding-bottom: 18px;
+    }
+  }
+
+  &-copy-ttl-2 {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    background-color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 6px;
+    padding: 24px 37px 65px 37px;
+    margin-right: 80px;
+
+    @include tb {
+      margin-right: 15px;
+    }
+
+    @include sp {
+      font-size: 14px;
+      letter-spacing: 3px;
+      padding: 15px 20px 15px 20px;
+      // padding-left: 20px;
+      // padding-right: 20px;
+      // padding-bottom: 18px;
+      margin-right: 15px;
+    }
+
+    span {
+      color: #21a937;
+      font-weight: bold;
+    }
+  }
+}
+
+// イントロダクション
+.introduction {
+
+  // インナー
+  &-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 31px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    @include tb {
+      max-width: 700px;
+      display: block;
+      padding-left: 0;
+    }
+  }
+
+  // キャッチコピー
+  &-phrase {
+    padding-top: 193px;
+
+    @include tb {
+      padding-top: 120px;
+    }
+
+    @include sp {
+      padding-top: 100px;
+    }
+
+    &-ttl-1 {
+      max-width: 270px;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 32px;
+      line-height: 1.5;
+      background: linear-gradient(transparent 75%, #99e5a5 0%);
+
+      @include tb {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+      }
+
+      @include sp {
+        // display: inline-block;
+        max-width: 202px;
+        font-size: 18px;
+      }
+    }
+
+    &-ttl-2 {
+      max-width: 216px;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1.5;
+      background: linear-gradient(transparent 75%, #99e5a5 0%);
+
+      @include tb {
+        margin: 0 auto;
+        margin-bottom: 30px;
+      }
+
+      @include sp {
+        // display: inline-block;
+        max-width: 162px;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+
+    &-txt {
+      max-width: 415px;
+      font-size: 16px;
+      line-height: 2.4;
+      margin-top: 37px;
+      color: #444;
+
+      @include tb {
+        margin: 0 auto;
+      }
+
+      @include sp {
+        font-size: 14px;
+        padding: 0 5%;
+      }
+
+      .pc-br {
+
+        @include tb {
+          display: none;
+        }
+      }
+    }
+  } 
+
+  // イントロダクション画像
+  &-img {
+    margin: 162px 0 82px;
+
+    @include tb {
+      margin-top: 60px;
+      margin-bottom: 50px;
+    }
+    @include sp {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+
+    img {
+      width: 690px;
+      height: 420px;
+
+      @include sp {
+        width: 90%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// コンテンツセクション
+.contents {
+  background-color: #F5FCF8;
+  padding: 78px 0 112px;
+
+  // インナー
+  &-inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1180px;
+
+    @include tb {
+      max-width: 90%;
+    }
+  }
+
+  // 治療内容
+  .treatment {
+    padding-bottom: 81px;
+
+    // タイトル
+    &-headline {
+      text-align: center;
+
+      h2 {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.45;
+        background: linear-gradient(transparent 75%, #99e5a5 0%);
+        margin-bottom: 70px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 34px;
+
+        @include sp {
+          margin-bottom: 80px;
+        }
+
+        .sp-br {
+          display: none;
+
+          @include sp {
+            display: block;
+          }
+        }
+      }   
+    }
+
+    // コンテンツボックスのレイアウト
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      @include tb {
+        flex-direction: column;
+        align-items: center;
+        // padding: 0 15px;
+      }
+
+      // 中央のボックスのみmarginで左右の間隔を作る
+      .treatment-box:nth-child(2) {
+        margin: 0 20px;
+
+        @include tb {
+          margin-left: 0;
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+
+      .treatment-box:last-child {
+
+        @include tb {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-box {
+      position: relative;  // 最下部のimgの位置決めの為に基準の親要素にrelative
+      width: 380px;
+      height: 591px;
+      background-color: #fff;
+      padding-top: 38px;
+      border-radius: 10px;
+      border: solid 2px #C9C9C9;
+
+      @include tb {
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      @include sp {
+        width: 337.5px;
+      }
+
+      h2 {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 34px;
+      }
+
+      p {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 2.375;
+
+        .pc-br {
+
+          @include tb {
+            display: none;
+          }
+        }
+      }
+
+      &-img {
+        width: 187px;
+        height: 187px;
+        text-align: center;  // imgの中央配置用（PC/タブレット用）
+      }
+
+      &-img img {
+        position: absolute;  // ボックスを親要素としてabsoluteで画像を最下部に配置
+        bottom: 0;
+        // left: 96.5px;
+
+        @include tb {
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+        }
+      }
+      
+      // 各コンテンツ個別CSS
+      &-info-1 {
+        padding: 0 28px;
+
+        @include tb {
+          padding: 0 10px;
+        }
+      }
+
+      &-info-2 {
+        padding: 0 36px;
+
+        @include tb {
+          padding: 0 10px;
+        }
+      }
+
+      &-info-3 {
+        padding: 0 26px;
+
+        @include tb {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+
+  // お知らせ
+  .information {
+
+    // お知らせタイトル
+    &-ttl {
+      text-align: center;
+      margin-bottom: 70px;
+
+      @include sp {
+        margin-bottom: 50px;
+      }
+
+      h2 {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.45;
+        background: linear-gradient(transparent 75%, #99e5a5 0%);
+      }
+    }
+
+    &-detail {
+      background-color: #fff;
+      height: 390px;
+      padding: 49px 66px 46px 66px;
+      border-radius: 30px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+      @include tb {
+        height: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    &-txt {
+      display: flex;
+      align-items: center;
+      padding: 19.5px 0 18.5px;
+      border-bottom: solid 2px #E7E7E7;
+
+      @include sp {
+        align-items: flex-start;
+      }
+
+      &-in {
+        display: flex;
+
+        @include sp {
+          display: block;
+          margin-right: 30px;
+        }
+
+        .date {
+          color: #21a937;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 1.5;
+
+          @include sp {
+            text-align: center;
+          }
+        }
+  
+        .genre {
+          width: 80px;
+          height: 25px;
+          background-color: #444;
+          color: #fff;
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 1.42;  // テキストのpタグの鷹さ調整（カンプの高さ÷font-sizeのpx）= line-heightの数値
+          text-align: center;
+          padding: 4px 16px;
+          margin: 0 30px;
+  
+          @include sp {
+            margin: 0;
+          }
+        }
+      }
+
+      .sentence {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    &-txt:first-child {
+      padding-top: 0;
+    }
+
+    &-txt:nth-child(4) {
+      padding-bottom: 17.5px;
+    }
+
+    .btn {
+      text-align: right;
+      margin-top: 31.5px;  // information-txtのborder:2px × 4つ分の8pxを差し引いた値
+
+      @include sp {
+        padding-right: 30px;
+        margin-top: 46px;
+      }
+
+      a {
+        color: #444;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 1.5;
+        margin-right: -19.5px;  // マイナスmarginでアイコン分を右側にはみ出させる 
+
+        @include tb {
+          margin-right: 0;
+        }
+
+        i {
+          margin-left: 7.5px;
+        }
+      }
+    
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// マップエリア
+.map {
+  background-color: #fff;
+
+  @include tb {
+    padding-bottom: 150px;
+  }
+
+  // インナー
+  &-inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1180px;
+    display: flex;
+    padding: 196px 0 163px 0;
+
+    @include tb {
+      max-width: 100%;
+      flex-direction: column-reverse;  // スマホ・タブレット用に並び替え
+      padding-top: 100px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .gmap-pc {
+    display: block;
+
+    @include tb {
+      display: none;
+    }
+  }
+
+  .gmap-sp {
+    display: none;
+
+    @include tb {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  // アクセス情報
+  &-information {
+    max-width: 572px;
+    padding-left: 34px;
+
+    @include tb {
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // ロゴ
+  &-logo {
+    width: 263px;
+    height: 73px;
+    margin-bottom: 25px;
+
+    @include tb {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    // スマホ用ロゴ（尺度：2/3）
+    @include sp {
+      width: 175px;
+      height: 49px;
+    }
+  }
+
+  // 住所
+  &-address {
+    display: flex;
+    margin-bottom: 25px;
+
+    @include tb {
+      display: block;
+      text-align: center;
+    }
+
+    &-num {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-right: 16px;
+    }
+
+    &-txt {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  // 電話番号
+  &-tel {
+    margin-bottom: 27.5px;
+
+    img {
+      position: relative;
+      top: 4px;
+      left: 1px;
+    }
+
+    span {
+      color: #21a937;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.45;
+    }
+
+    @include tb {
+      text-align: center;
+    }
+  }
+
+  // 診療日・診療時間
+  &-working {
+    border-top: solid 2px #E7E7E7;
+    border-bottom: solid 2px #E7E7E7;
+
+    // 下部マップとの空間調整
+    @include tb {
+      padding-left: 17px;
+      padding-right: 17px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // 診療日
+  .business-day {
+    display: flex;
+    margin-top: 18px;
+
+    &-title {
+      font-size: 14px;
+      line-height: 1.4;
+      padding-top: 2.5px;
+      padding-right: 27.5px;
+      border-right: solid 2px #E7E7E7;
+    }
+
+    &-detail {
+      display: flex;
+      padding: 0 128px 0 27.5px;
+
+      // レスポンシブで右側の飛び出し防止用
+      @include tb {
+        padding-right: 0;
+      }
+
+      // flex-startで上部揃えにしてアンダーラインを修正
+      @include sp {
+        align-items: flex-start;
+      }
+    }
+
+    &-detail:first-child {
+      padding-top: 2.5px;
+    }
+
+    &-detail:nth-child(2) {
+      margin: 13px 0;
+    }
+
+    &-detail:last-child {
+      padding-bottom: 6.5px;
+    }
+
+    &-week {
+      font-size: 14px;
+      line-height: 1.4;
+      background: linear-gradient(transparent 75%, #99e5a5 0%);
+    }
+
+    &-time {
+      display: flex;
+
+      @include sp {
+        display: block;
+      }
+    }
+
+    &-am {
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0 17px 0 23px;
+
+      @include sp {
+        margin-right: 0;
+      }
+    }
+
+    &-pm {
+      font-size: 14px;
+      line-height: 1.4;
+
+      @include sp {
+        margin-left: 23px;
+      }
+    }
+  }
+
+  // 休診日
+  .holiday {
+    display: flex;
+    margin: 20px 0 18px 0;
+
+    &-title {
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 4.5px 41.5px 4.5px 0;
+      border-right: solid 2px #E7E7E7;
+    }
+
+    &-week {
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 4.5px 0 4.5px 27.5px;
+    }
+  }
+
+  // フッター(PC)
+  .footer-pc {
+    text-align: right;
+    margin-top: 20.5px;
+
+    @include tb {
+      display: none;
+    }
+
+    small {
+      font-size: 11px;
+      line-height: 1.45;
+    }
+  }
+}
+
+// フッター(TB)
+.footer-tb {
+  display: none;
+
+  @include tb {
+    display: block;
+    text-align: center;
+  }
+
+  small {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
